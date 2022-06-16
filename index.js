@@ -5,6 +5,8 @@ const app = express()
 const port = 3000
 
 const bodyparser = require('body-parser');
+const config = require('./config/key');
+
 const { User } = require("./Models/User");
 
 //application/x-www-form-urlencoded
@@ -14,7 +16,7 @@ app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
 
 const mongoose = require('mongoose')
-mongoose.connect('mongodb+srv://SON:durwjs$2X@basic.ifqxthu.mongodb.net/?retryWrites=true&w=majority', {
+mongoose.connect(config.mongoURI, {
   // useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false
 }).then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err))
