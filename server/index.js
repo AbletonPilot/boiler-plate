@@ -10,7 +10,6 @@ const config = require('./config/key');
 
 const { auth } = require('./middleware/auth');
 const { User } = require("./Models/User");
-
 //application/x-www-form-urlencoded
 app.use(bodyparser.urlencoded({extended: true}));
 
@@ -26,7 +25,7 @@ mongoose.connect(config.mongoURI, {
 
 
 app.get('/', (req, res) => {
-  res.send('ㅎㅇ')
+  res.send('Hello')
 })
 
 app.get('/api/hello', (req, res) => {
