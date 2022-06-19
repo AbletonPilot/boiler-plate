@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../../_actions/user_action';
 import { useNavigate } from 'react-router-dom';
-// import Axios from 'axios';
 // import { withRouter } from 'react-router-dom';
 function RegisterPage() {
     const dispatch = useDispatch();
@@ -45,6 +44,7 @@ function RegisterPage() {
         dispatch(registerUser(body))
             .then(response => {
                 if (response.payload.success) {
+                  alert("회원가입을 축하드립니다!")
                   navigate("/login")
                 } else {
                     alert("Failed to sign up")
